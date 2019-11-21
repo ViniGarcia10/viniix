@@ -14,7 +14,7 @@ export default function Home() {
 
       <View style={styles.header}> 
         <View style={styles.infoHeader}>
-          <Text>Você está em</Text>
+          <Text style={styles.textHeader}>Você está em</Text>
           <Text style={styles.localText}> { local } </Text>
           <Image source={PointIcon}/>
         </View>
@@ -50,8 +50,11 @@ const styles = StyleSheet.create({
   },
 
   localText: {
-    fontFamily: 'Roboto-Bold',
-    fontWeight: 'bold'
+    fontFamily: 'Roboto-Bold'
+  },
+
+  textHeader: {
+    fontFamily: 'Roboto-Light'
   },
 
   bodyPromo: {

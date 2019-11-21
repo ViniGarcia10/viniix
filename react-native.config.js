@@ -1,5 +1,3 @@
 module.exports = {
-  "assets": [
-    "./assets/fonts/"
-] //caminho das minhas fonts
+  "assets": ["./src/assets/fonts/"], //caminho das minhas fonts
 };
