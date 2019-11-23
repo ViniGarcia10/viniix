@@ -3,7 +3,7 @@ import { View, SafeAreaView, Text, StatusBar, StyleSheet, Image } from 'react-na
 import PointIcon from '../assets/images/point.png'
 
 export default function Home() {
-  const local = 'Novo Horizonte do Oeste'
+  const local = 'Novo Horizonte do Oeste test'
   return (
     <SafeAreaView>
 
