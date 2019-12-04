@@ -1,8 +1,22 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.ScrollView.attrs({
-  contentContainerStyle: {  },
+  contentContainerStyle: { },
   showsVerticalScrollIndicator: false,  
-})`
-background-color: rgba(241,241,255,0.9)
+})``;
+
+export const BarFooter = styled.View`
+  height: 46px;
+`;
+
+export const ContainerGlobal = styled.SafeAreaView`
+  flex: 1;
+  background-color: rgb(241,245,255);
+`;
+
+export const Categoria = styled.Text`
+  font-family: 'Roboto-Light';
+  font-size: 20px;
+  margin-left: 4px;
+  padding:0;
 `;
