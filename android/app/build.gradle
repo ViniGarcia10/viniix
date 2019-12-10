@@ -183,6 +183,7 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02' //react-native-screens
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    apply from: "../../node_modules/react-native-vector-icons/fonts.gradle" // icons
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";

@@ -4,15 +4,15 @@ import { StatusBar } from 'react-native';
 import Header from '../../components/header'
 import CardLarge from '../../components/cardLarge'
 import ScrollCat from '../../components/scrollCategoria'
-import ContainerBar from '../../components/barFooter'
 
-import { Container, BarFooter, ContainerGlobal, Categoria } from './styles'
+import { Container, ContainerGlobal, Categoria } from './styles'
 
 import Cervejas from '../../assets/images/Cervejas.jpeg'
 
-export default function Main() {
-  return (
-    <ContainerGlobal>
+export class Main extends React.Component {
+  render() {
+    return (
+      <ContainerGlobal>
       <Container>
 
         <StatusBar
@@ -21,7 +21,6 @@ export default function Main() {
         />
 
         <Header />
-
 
         <CardLarge titulo='Promoções'/>
 
@@ -46,10 +45,7 @@ export default function Main() {
 
       </Container>
 
-      <BarFooter>
-        <ContainerBar />
-      </BarFooter>
-
     </ContainerGlobal>
-  );
+    )
+  }
 }
