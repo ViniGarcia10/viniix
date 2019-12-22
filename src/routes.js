@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { YellowBox } from 'react-native';
 import { BottomNavigation } from 'react-native-paper';
 
 import { Main } from './pages/main'
@@ -10,6 +11,10 @@ import ButtonQrCodeScan from './components/BtnQrCodeScan'
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Icon1 from 'react-native-vector-icons/MaterialCommunityIcons';
+
+YellowBox.ignoreWarnings([
+  'Virtualized'
+]);
 
 const myIcon1 = () => <Icon name="place" size={25} />;
 
@@ -24,7 +29,7 @@ const myIcon5 = () => <Icon1 name="menu" size={25} />;
 
 export default class MyComponent extends React.Component {
   state = {
-    index: 0,
+    index: 1,
     routes: [
       { key: 'homeScreen', icon: myIcon2 },
       { key: 'placeScreen', icon: myIcon1 },
