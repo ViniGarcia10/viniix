@@ -29,7 +29,7 @@ const myIcon5 = () => <Icon1 name="menu" size={25} />;
 
 export default class MyComponent extends React.Component {
   state = {
-    index: 1,
+    index: 0,
     routes: [
       { key: 'homeScreen', icon: myIcon2 },
       { key: 'placeScreen', icon: myIcon1 },
