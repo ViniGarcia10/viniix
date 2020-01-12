@@ -130,6 +130,7 @@ android {
     defaultConfig {
         applicationId "com.viniix"
         minSdkVersion rootProject.ext.minSdkVersion
+        missingDimensionStrategy 'react-native-camera', 'general' // dimensão general ou a do mlkit
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -179,6 +180,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-camera')
     implementation 'androidx.appcompat:appcompat:1.1.0-rc01' //react-native-screens
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02' //react-native-screens
     implementation fileTree(dir: "libs", include: ["*.jar"])

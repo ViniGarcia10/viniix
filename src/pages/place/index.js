@@ -1,9 +1,15 @@
 import React from 'react';
 import { FlatList, TouchableOpacity } from 'react-native'
+import { YellowBox } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Container, ContainerGlobal, Topo, Lojas, ItemList, TextList, Street } from './styles'
+
+ YellowBox.ignoreWarnings([
+   'Virtualized'
+ ]);
+
 
 export class Place extends React.Component {
   render() {

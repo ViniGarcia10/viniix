@@ -1,18 +1,16 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.ScrollView.attrs({
-  contentContainerStyle: { },
-  showsVerticalScrollIndicator: false,  
-})``;
-
-export const ContainerGlobal = styled.SafeAreaView`
-  flex: 1;
-  background-color: rgb(241,245,255);
-`;
-
-export const Categoria = styled.Text`
+export const LbButton = styled.Text`
   font-family: 'Roboto-Light';
   font-size: 20px;
   margin-left: 4px;
   padding:0;
+  color: #fff;
 `;
+
+export const BtnCancelar = styled.TouchableOpacity`
+    align-items: center;
+    background-color: red;
+    padding: 20px;
+`;
+

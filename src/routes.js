@@ -1,64 +1,92 @@
-import * as React from 'react';
-import { YellowBox } from 'react-native';
-import { BottomNavigation } from 'react-native-paper';
+import React, { Fragment } from 'react';
+import { Button, StyleSheet, Platform, Image, View, Text, TouchableOpacity } from 'react-native';
+import { createAppContainer, SafeAreaView } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
-import { Main } from './pages/main'
-import { Place } from './pages/place'
-import { QrCodeScan } from './pages/qrCodeScan'
-import { Menu } from './pages/menu'
-import { Shop } from './pages/shop'
 import ButtonQrCodeScan from './components/BtnQrCodeScan'
 
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import Icon1 from 'react-native-vector-icons/MaterialCommunityIcons';
+import QrCodeScan from './pages/qrCodeScan'
+import TabBottom from './components/TabBottom'
 
-YellowBox.ignoreWarnings([
-  'Virtualized'
-]);
+const styles = StyleSheet.create({
+  btnContainer: {
+    height: 85,
+    width: 75,
+    zIndex: 3,
+    borderRadius: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    left: '40%',
+    bottom: 3
+  }
+})
 
-const myIcon1 = () => <Icon name="place" size={25} />;
-
-const myIcon2 = () => <Icon name="home" size={25} />;
-
-const myIcon3 = () => <ButtonQrCodeScan />;
-
-const myIcon4 = () => <Icon name="shopping-cart" size={25} />;
-
-const myIcon5 = () => <Icon1 name="menu" size={25} />;
-
-
-export default class MyComponent extends React.Component {
-  state = {
-    index: 1,
-    routes: [
-      { key: 'homeScreen', icon: myIcon2 },
-      { key: 'placeScreen', icon: myIcon1 },
-      { key: 'qrCodeScreen', icon: myIcon3 },
-      { key: 'shopScreen', icon: myIcon4 },
-      { key: 'menuScreen', icon: myIcon5 },
-    ],
-  };
-
-  _handleIndexChange = index => this.setState({ index });
-
-  _renderScene = BottomNavigation.SceneMap({
-    homeScreen: Main,
-    placeScreen: Place,
-    qrCodeScreen: QrCodeScan,
-    shopScreen: Shop,
-    menuScreen: Menu,
-  });
-
+class HomeScreen extends React.Component {
   render() {
     return (
-      <BottomNavigation
-        
-        shifting={false}
-        barStyle={{ height: 46, backgroundColor: 'rgb(78,90,246)', paddingTop: 0, paddingLeft:0 }}
-        navigationState={this.state}
-        onIndexChange={this._handleIndexChange}
-        renderScene={this._renderScene}
-      />
+      <Fragment>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('MyModal')}
+          style={styles.btnContainer}
+        >
+          <ButtonQrCodeScan />
+        </TouchableOpacity>
+        <TabBottom />
+      </Fragment>
     );
+  }
+}
+
+class ModalScreen extends React.Component {
+  render() {
+    return (
+      <QrCodeScan>
+        <View>
+          <Button onPress={() => this.props.navigation.goBack()} title="Voltar" />
+        </View>
+      </QrCodeScan>
+    );
+  }
+}
+
+const MainStack = createStackNavigator(
+  {
+    Home: {
+      screen: HomeScreen,
+    },
+  },
+  {
+    initialRouteName: 'Home',
+    defaultNavigationOptions: {
+      headerStyle: {
+        elevation: 0,
+        height: 0,
+      },
+
+    },
+  }
+);
+
+const RootStack = createStackNavigator(
+  {
+    Main: {
+      screen: MainStack,
+    },
+    MyModal: {
+      screen: ModalScreen,
+    },
+  },
+  {
+    headerMode: 'none',
+    mode: "modal"
+  }
+);
+
+const AppContainer = createAppContainer(RootStack);
+
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />;
   }
 }

@@ -10,7 +10,7 @@ export const ContainerGlobal = styled.SafeAreaView`
   background-color: rgb(255,255,255);
 `;
 
-export const Topo = styled.View`
+export const Topo = styled.SafeAreaView`
   height: 40px;
   background-color: rgb(78,90,244);
   border: solid 1px rgb(50,80,240);
@@ -24,7 +24,7 @@ export const Lojas = styled.Text`
    color: #fff; 
  `;
 
-export const ItemList = styled.View`
+export const ItemList = styled.SafeAreaView`
   height: 60px;
   width: 350px;
   background-color: rgb(255,255,255);
